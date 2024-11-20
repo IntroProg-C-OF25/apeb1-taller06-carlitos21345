@@ -21,18 +21,28 @@ public class Ejercicio1_Facturacion2productos {
         iva = (costoProd1 + costoProd2) * 0.10;
         subTotal = iva + (costoProd1 + costoProd2);
         descuento = subTotal * 0.05;
-        if (subTotal > 1000) {
-            descuento = subTotal * 0.2;
+        if (subTotal <= 1000) {
+            descuento = 0.05;
 
+        } else {
+            if (subTotal > 1000) {
+                descuento = subTotal * 0.20;
+            }
+        }
+        descuento *= subTotal;
+        if (subTotal >= 5000) {
+            costoEnvio = 0;
         }
         costoFinal = subTotal - descuento + costoEnvio;
+        System.out.println("IVA = " + iva);
+        System.out.println("DESCUENTO = " + descuento);
         System.out.println("costoFinal = " + costoFinal);
     }
 }
-/***
- * run:
- *DAME TRES COSTOS(2 del producto + 1 envio): 10 10 10
- *costoFinal = 30.9
- *BUILD SUCCESSFUL (total time: 4 seconds)
 
+/**
+ * *
+ * run: DAME TRES COSTOS(2 del producto + 1 envio): 10 10 10 costoFinal = 30.9
+ * BUILD SUCCESSFUL (total time: 4 seconds)
+ *
  */
